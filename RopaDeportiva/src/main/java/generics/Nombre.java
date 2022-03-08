@@ -1,4 +1,4 @@
-package domain.almacen.valueobjects.asesor;
+package generics;
 
 import co.com.sofka.domain.generic.ValueObject;
 

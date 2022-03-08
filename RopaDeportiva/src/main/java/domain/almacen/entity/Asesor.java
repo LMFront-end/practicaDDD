@@ -4,8 +4,8 @@ import co.com.sofka.domain.generic.Entity;
 import domain.almacen.ids.AsesorId;
 import domain.almacen.valueobjects.asesor.AreaDesignada;
 import domain.almacen.valueobjects.asesor.HorasDeTrabajo;
-import domain.almacen.valueobjects.asesor.Identificacion;
-import domain.almacen.valueobjects.asesor.Nombre;
+import generics.Identificacion;
+import generics.Nombre;
 
 import java.util.Objects;
 
