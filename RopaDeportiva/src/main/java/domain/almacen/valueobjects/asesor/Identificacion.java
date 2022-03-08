@@ -2,6 +2,8 @@ package domain.almacen.valueobjects.asesor;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Objects;
+
 public class Identificacion implements ValueObject<Identificacion.Properties> {
 
     // declaración de variables
@@ -14,18 +16,27 @@ public class Identificacion implements ValueObject<Identificacion.Properties> {
 
     // interface
     public interface Properties{
-        public Long identificacion();
+        Long identificacion();
 
     }
 
     // constructor del properties
     @Override
     public Properties value() {
-        return new Properties(){
-            @Override
-            public Long identificacion(){
-                return identificacion;
-            }
-        };
+        return () -> identificacion;
+    }
+
+    // se implementa equals y hashCode
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Identificacion)) return false;
+        Identificacion that = (Identificacion) o;
+        return Objects.equals(identificacion, that.identificacion);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(identificacion);
     }
 }

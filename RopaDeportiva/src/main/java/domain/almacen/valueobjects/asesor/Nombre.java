@@ -19,8 +19,8 @@ public class Nombre implements ValueObject<Nombre.Properties> {
 
     // interface
     public interface Properties{
-        public String nombre();
-        public String apellido();
+        String nombre();
+        String apellido();
     }
 
     // constructor del properties

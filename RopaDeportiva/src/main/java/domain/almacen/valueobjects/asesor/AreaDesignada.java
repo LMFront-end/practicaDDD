@@ -1,4 +1,4 @@
 package domain.almacen.valueobjects.asesor;
 
-public enum AreaDesignada {
+public class AreaDesignada {
 }
