@@ -2,6 +2,7 @@ package domain.almacen.valueobjects.asesor;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Objects;
 
 
 public class Nombre implements ValueObject<Nombre.Properties> {
@@ -10,16 +11,19 @@ public class Nombre implements ValueObject<Nombre.Properties> {
     private final String nombre;
     private final String apellido;
 
+    // constructor
     public Nombre(String nombre, String apellido){
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
+    // interface
     public interface Properties{
         public String nombre();
         public String apellido();
     }
 
+    // constructor del properties
     @Override
     public Properties value() {
         return new Properties(){
@@ -36,5 +40,17 @@ public class Nombre implements ValueObject<Nombre.Properties> {
         };
     }
 
+    // implementación de equals y el hashCode
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Nombre)) return false;
+        Nombre nombre1 = (Nombre) o;
+        return nombre.equals(nombre1.nombre) && apellido.equals(nombre1.apellido);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, apellido);
+    }
 }
