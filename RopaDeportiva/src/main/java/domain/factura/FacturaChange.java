@@ -1,11 +1,14 @@
 package domain.factura;
 
 import co.com.sofka.domain.generic.EventChange;
-import domain.almacen.entity.Asesor;
-import domain.almacen.entity.Gerente;
-import domain.almacen.entity.Producto;
 import domain.almacen.event.*;
 import domain.factura.entity.Cliente;
+import domain.factura.entity.Estado;
+import domain.factura.entity.Transaccion;
+import domain.factura.event.ClienteCambiado;
+import domain.factura.event.EstadoCambiado;
+import domain.factura.event.FacturaCreada;
+import domain.factura.event.TransaccionCambiada;
 
 public class FacturaChange extends EventChange {
 
@@ -20,42 +23,28 @@ public class FacturaChange extends EventChange {
         // cambiarCliente()
         apply((ClienteCambiado event) -> {
             Cliente nuevoCliente = new Cliente(event.getClienteId(),
-                    event.getTipo(),
-                    event.getGenero(),
-                    event.getMarca(),
-                    event.getPrecio(),
-                    event.getTalla());
-            almacen.productos.forEach((producto) -> {
-                if(producto.equals(nuevoProducto)){
-                    almacen.productos.remove(producto);
-                    almacen.productos.add(nuevoProducto);
-                }
-            });
-        });
-
-        // cambiarAsesor()
-
-        apply((AsesorCambiado event) -> {
-            Asesor nuevoAsesor = new Asesor(event.getAsesorId(),
                     event.getNombre(),
-                    event.getIdentificacion(),
-                    event.getHorasDeTrabajo(),
-                    event.getAreaDesignada());
-
-            almacen.asesores.forEach((asesor) -> {
-                if(asesor.equals(nuevoAsesor)){
-                    almacen.asesores.remove(asesor);
-                    almacen.asesores.add(nuevoAsesor);
-                }
+                    event.getTelefono(),
+                    event.getEmail(),
+                    event.getDireccion(),
+                    event.getIdentificacion());
             });
-        });
 
-        // cambiarGerente()
-        apply((GerenteCambiado event) -> {
-            almacen.gerente = new Gerente(
-                    event.getGerenteId(),
-                    event.getNombre(),
-                    event.getIdentificacion()
+        // cambiarTransaccion()
+
+        apply((TransaccionCambiada event) -> {
+            Transaccion nuevaTransaccion = new Transaccion(event.getTransaccionId(),
+                    event.getFecha(),
+                    event.getPrecio());
+            });
+
+
+        // cambiarEstado()
+        apply((EstadoCambiado event) -> {
+            Estado estado = new Estado(
+                    event.getEstadoId(),
+                    event.getEstadoActual(),
+                    event.getFecha()
             );
         });
 

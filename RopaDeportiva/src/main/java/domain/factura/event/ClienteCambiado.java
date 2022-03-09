@@ -9,16 +9,18 @@ import domain.factura.valueobjects.cliente.Telefono;
 import generics.Identificacion;
 import generics.Nombre;
 
+import java.util.Set;
+
 public class ClienteCambiado extends DomainEvent {
 
     private final ClienteId clienteId;
     private final Nombre nombre;
-    private final Telefono telefono;
-    private final Email email;
-    private final Direccion direccion;
+    private final Set<Telefono> telefono;
+    private final Set<Email> email;
+    private final Set<Direccion> direccion;
     private final Identificacion identificacion;
 
-    public ClienteCambiado(String type, ClienteId clienteId, Nombre nombre, Telefono telefono, Email email, Direccion direccion, Identificacion identificacion) {
+    public ClienteCambiado(String type, ClienteId clienteId, Nombre nombre, Set<Telefono> telefono, Set<Email> email, Set<Direccion> direccion, Identificacion identificacion) {
         super("RopaDeportiva.ClienteCambiado");
         this.clienteId = clienteId;
         this.nombre = nombre;
@@ -36,15 +38,15 @@ public class ClienteCambiado extends DomainEvent {
         return nombre;
     }
 
-    public Telefono getTelefono() {
+    public Set<Telefono> getTelefono() {
         return telefono;
     }
 
-    public Email getEmail() {
+    public Set<Email> getEmail() {
         return email;
     }
 
-    public Direccion getDireccion() {
+    public Set<Direccion> getDireccion() {
         return direccion;
     }
 
