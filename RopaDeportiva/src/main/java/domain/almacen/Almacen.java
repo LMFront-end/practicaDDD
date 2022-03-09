@@ -123,4 +123,24 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         appendChange(new GerenteEliminado(gerenteId));
     }
 
+    // se crean los constructores
+
+    /*
+    protected Set <Asesor> asesor;
+    protected Set <Producto> producto;
+    protected Gerente gerente;
+    */
+
+    public Asesor asesor(){
+        return (Asesor) asesor;
+    }
+
+    public Producto producto(){
+        return (Producto) producto;
+    }
+
+    public Gerente gerente(){
+        return gerente;
+    }
+
 }
