@@ -16,7 +16,7 @@ public class AsesorCambiado extends DomainEvent {
     private final AreaDesignada areaDesignada;
 
     public AsesorCambiado(AsesorId asesorId, Nombre nombre, Identificacion identificacion, HorasDeTrabajo horasDeTrabajo, AreaDesignada areaDesignada){
-        super("RopaDeportiva.ProductoAniadido");
+        super("RopaDeportiva.AsesorCambiado");
         this.asesorId = asesorId;
         this.nombre = nombre;
         this.identificacion = identificacion;
@@ -25,7 +25,7 @@ public class AsesorCambiado extends DomainEvent {
     }
 
     // se generan los getters
-    
+
     public AsesorId getAsesorId() {
         return asesorId;
     }

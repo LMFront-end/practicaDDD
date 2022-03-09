@@ -18,7 +18,7 @@ public class AsesorAniadido extends DomainEvent {
     private final AreaDesignada areaDesignada;
 
     public AsesorAniadido(AsesorId asesorId, Nombre nombre, Identificacion identificacion, HorasDeTrabajo horasDeTrabajo, AreaDesignada areaDesignada){
-        super("RopaDeportiva.ProductoAniadido");
+        super("RopaDeportiva.AsesorAniadido");
         this.asesorId = asesorId;
         this.nombre = nombre;
         this.identificacion = identificacion;
