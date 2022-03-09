@@ -58,4 +58,17 @@ public class Producto extends Entity<ProductoId> {
         this.tipo = Objects.requireNonNull(tipo);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Producto)) return false;
+        if (!super.equals(o)) return false;
+        Producto producto = (Producto) o;
+        return Objects.equals(tipo, producto.tipo) && Objects.equals(genero, producto.genero) && Objects.equals(marca, producto.marca) && Objects.equals(precio, producto.precio) && Objects.equals(talla, producto.talla);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), tipo, genero, marca, precio, talla);
+    }
 }
