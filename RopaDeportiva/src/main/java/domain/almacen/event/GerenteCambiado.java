@@ -12,7 +12,7 @@ public class GerenteCambiado extends DomainEvent {
     private final Identificacion identificacion;
 
     public GerenteCambiado(GerenteId gerenteId, Nombre nombre, Identificacion identificacion){
-        super("RopaDeportiva.GerenteAniadido");
+        super("RopaDeportiva.GerenteCambiado");
         this.gerenteId = gerenteId;
         this.nombre = nombre;
         this.identificacion = identificacion;
