@@ -19,7 +19,7 @@ public class GerenteAniadido extends DomainEvent {
     }
 
     // se generan los getters
-    
+
     public GerenteId getGerenteId() {
         return gerenteId;
     }
