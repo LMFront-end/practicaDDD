@@ -5,6 +5,7 @@ import domain.almacen.entity.Producto;
 import domain.almacen.event.AlmacenCreado;
 import domain.almacen.event.ProductoAniadido;
 import domain.almacen.event.ProductoCambiado;
+import domain.almacen.event.ProductoEliminado;
 
 
 public class AlmacenChange extends EventChange {
@@ -45,8 +46,17 @@ public class AlmacenChange extends EventChange {
         });
 
         // eliminarProducto()
+        apply((ProductoEliminado event) -> {
+            almacen.productos.forEach(producto -> {
+                if (producto.identity().equals(event.getProductoId())) {
+                    almacen.productos.remove(producto);
+                }
+            });
+        });
 
         // añadirAsesor()
+
+        
 
         // cambiarAsesor()
 
