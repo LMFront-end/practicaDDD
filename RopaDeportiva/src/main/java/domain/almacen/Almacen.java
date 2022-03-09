@@ -8,8 +8,14 @@ import domain.almacen.entity.Gerente;
 import domain.almacen.entity.Producto;
 import domain.almacen.event.AlmacenCreado;
 import domain.almacen.ids.AlmacenId;
+import domain.almacen.ids.AsesorId;
+import domain.almacen.ids.GerenteId;
 import domain.almacen.ids.ProductoId;
+import domain.almacen.valueobjects.asesor.AreaDesignada;
+import domain.almacen.valueobjects.asesor.HorasDeTrabajo;
 import domain.almacen.valueobjects.producto.*;
+import generics.Identificacion;
+import generics.Nombre;
 
 import java.util.List;
 import java.util.Objects;
@@ -55,21 +61,48 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         Objects.requireNonNull(marca);
         Objects.requireNonNull(precio);
         Objects.requireNonNull(talla);
-        appendChange(new ProductoAniadido(tipo, genero,  marca,  precio,  talla));
+        appendChange(new ProductoAniadido(productoId, tipo, genero,  marca,  precio,  talla));
     }
 
     // cambiarProducto()
-    public void  cambiarProducto()
+    public void  cambiarProducto(ProductoId productoId, Tipo tipo, Genero genero, Marca marca, Precio precio, Talla talla){
+        Objects.requireNonNull(productoId);
+        Objects.requireNonNull(tipo);
+        Objects.requireNonNull(genero);
+        Objects.requireNonNull(marca);
+        Objects.requireNonNull(precio);
+        Objects.requireNonNull(talla);
+        appendChange(new ProductoCambiado(productoId, tipo, genero,  marca,  precio,  talla));
+    }
 
     // eliminarProducto()
-
-
-    // cambiarAsesor()
+    public void eliminarProducto(ProductoId productoId){
+        Objects.requireNonNull(productoId);
+        appendChange(new ProductoEliminado(productoId));
+    }
 
     // añadirAsesor()
+    public void aniadirAsesor(AsesorId asesorId, Nombre nombre, Identificacion identificacion, HorasDeTrabajo horasDeTrabajo, AreaDesignada areaDesignada){
 
+    }
+    // cambiarAsesor()
+    public void cambiatAsesor(AsesorId asesorId, Nombre nombre, Identificacion identificacion, HorasDeTrabajo horasDeTrabajo, AreaDesignada areaDesignada){
+
+    }
     // eliminarAsesor()
+    public void eliminarAsesor(AsesorId asesorId){
+
+    }
 
     // cambiarGerente()
+    public void cambiarGerente(GerenteId gerenteId, Nombre nombre, Identificacion identificacion){
+
+    }
+
+
+    // eliminarGerente()
+    public void eliminarGerente(GerenteId gerenteId){
+
+    }
 
 }
