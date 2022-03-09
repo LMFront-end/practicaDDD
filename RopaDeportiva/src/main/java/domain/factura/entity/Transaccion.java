@@ -3,7 +3,6 @@ package domain.factura.entity;
 import co.com.sofka.domain.generic.Entity;
 import domain.factura.ids.TransaccionId;
 import domain.factura.valueobjects.Fecha;
-import domain.factura.valueobjects.estado.EstadoActual;
 import generics.Precio;
 
 import java.util.Objects;
