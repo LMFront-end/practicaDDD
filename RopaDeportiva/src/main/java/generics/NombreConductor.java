@@ -1,17 +1,17 @@
-package domain.distribucion.valueobjects.conductor;
+package generics;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Nombre   implements ValueObject<generics.Nombre.Properties>
+public class NombreConductor implements ValueObject<generics.Nombre.Properties>
 {
     // declaracion de variables
     private final String nombre;
     private final String apellido;
 
     // constructor
-    public Nombre(String nombre, String apellido){
+    public NombreConductor(String nombre, String apellido){
         this.nombre = nombre;
         this.apellido = apellido;
     }
@@ -39,8 +39,13 @@ public class Nombre   implements ValueObject<generics.Nombre.Properties>
         };
     }
 
-    // implementación de equals y el hashCode
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof NombreConductor)) return false;
+        NombreConductor that = (NombreConductor) o;
+        return nombre.equals(that.nombre) && apellido.equals(that.apellido);
+    }
 
     @Override
     public int hashCode() {
