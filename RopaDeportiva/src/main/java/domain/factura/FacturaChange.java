@@ -16,6 +16,7 @@ public class FacturaChange extends EventChange {
 
         apply((FacturaCreada event) -> {
             factura.facturaId = event.getFacturaId();
+            factura.almacenId = event.getAlmacenId();
         });
 
         // metodos

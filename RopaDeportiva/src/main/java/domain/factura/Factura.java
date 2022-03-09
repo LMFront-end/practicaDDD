@@ -36,10 +36,10 @@ public class Factura extends AggregateEvent<FacturaId> {
 
     // se crea el constructor
 
-    public Factura(FacturaId facturaId) {
+    public Factura(FacturaId facturaId, AlmacenId almacenId) {
         super(facturaId);
 
-        appendChange(new FacturaCreada(facturaId)).apply();
+        appendChange(new FacturaCreada(facturaId, almacenId)).apply();
 
         subscribe(new FacturaChange(this));
 
@@ -47,9 +47,9 @@ public class Factura extends AggregateEvent<FacturaId> {
 
     // se crea la funcion from para la factura
     // Metodo que permite reconstruir el estado del agregado a partir de una lista de eventos de dominios
-    public static Factura from(FacturaId facturaId, List<DomainEvent> events){
+    public static Factura from(FacturaId facturaId, AlmacenId almacenId, List<DomainEvent> events){
 
-        var factura = new Factura(facturaId);
+        var factura = new Factura(facturaId, almacenId);
         // Evento de dominio, aplica el evento de dominio sobre la factura
         //events.forEach(event -> factura.applyEvent(event))
         events.forEach(factura::applyEvent);
