@@ -24,7 +24,7 @@ public class ProductoCambiado extends DomainEvent {
     }
 
     // se generan los getters
-    
+
     public ProductoId getProductoId() {
         return productoId;
     }
