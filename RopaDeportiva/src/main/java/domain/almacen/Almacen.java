@@ -1,7 +1,6 @@
 package domain.almacen;
 
 import co.com.sofka.domain.generic.AggregateEvent;
-import co.com.sofka.domain.generic.AggregateRoot;
 import co.com.sofka.domain.generic.DomainEvent;
 import domain.almacen.entity.Asesor;
 import domain.almacen.entity.Gerente;
@@ -101,6 +100,7 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         Objects.requireNonNull(areaDesignada);
         appendChange(new AsesorCambiado(asesorId, nombre, identificacion, horasDeTrabajo, areaDesignada));
     }
+
     // eliminarAsesor()
     public void eliminarAsesor(AsesorId asesorId){
         Objects.requireNonNull(asesorId);
@@ -116,7 +116,6 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         appendChange(new GerenteCambiado(gerenteId, nombre, identificacion));
     }
 
-
     // eliminarGerente()
     public void eliminarGerente(GerenteId gerenteId){
         Objects.requireNonNull(gerenteId);
@@ -124,12 +123,6 @@ public class Almacen extends AggregateEvent<AlmacenId> {
     }
 
     // se crean los constructores
-
-    /*
-    protected Set <Asesor> asesor;
-    protected Set <Producto> producto;
-    protected Gerente gerente;
-    */
 
     public Asesor asesor(){
         return (Asesor) asesor;
