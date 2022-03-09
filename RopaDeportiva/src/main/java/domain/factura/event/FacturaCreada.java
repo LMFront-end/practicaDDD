@@ -7,7 +7,7 @@ public class FacturaCreada extends DomainEvent {
 
     private final FacturaId facturaId;
 
-    public FacturaCreada(String type, FacturaId facturaId) {
+    public FacturaCreada(FacturaId facturaId) {
         super("RopaDeportiva.FacturaCreada");
         this.facturaId = facturaId;
     }
