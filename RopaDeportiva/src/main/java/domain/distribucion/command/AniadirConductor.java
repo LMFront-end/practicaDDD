@@ -1,32 +1,34 @@
-package domain.almacen.command;
+package domain.distribucion.command;
 
 import co.com.sofka.domain.generic.Command;
-import domain.almacen.ids.AsesorId;
-import domain.almacen.valueobjects.asesor.AreaDesignada;
+import co.com.sofka.domain.generic.DomainEvent;
+import domain.distribucion.ids.ConductorId;
 import generics.HorasDeTrabajo;
 import generics.Identificacion;
 import generics.Nombre;
 
-public class AniadirAsesor extends Command {
+public class AniadirConductor extends Command
+{
 
-    private final AsesorId asesorId;
+    private final ConductorId conductorId;
     private final Nombre nombre;
     private final Identificacion identificacion;
     private final HorasDeTrabajo horasDeTrabajo;
-    private final AreaDesignada areaDesignada;
 
-    public AniadirAsesor(AsesorId asesorId, Nombre nombre, Identificacion identificacion, HorasDeTrabajo horasDeTrabajo, AreaDesignada areaDesignada){
-        this.asesorId = asesorId;
+
+    public AniadirConductor(ConductorId conductorId, Nombre nombre, Identificacion identificacion,
+                             HorasDeTrabajo horasDeTrabajo){
+        this.conductorId = conductorId;
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.horasDeTrabajo = horasDeTrabajo;
-        this.areaDesignada = areaDesignada;
+
     }
 
     // se generan los getters
 
-    public AsesorId getAsesorId() {
-        return asesorId;
+    public ConductorId getConductorId() {
+        return conductorId;
     }
 
     public Nombre getNombre() {
@@ -39,9 +41,5 @@ public class AniadirAsesor extends Command {
 
     public HorasDeTrabajo getHorasDeTrabajo() {
         return horasDeTrabajo;
-    }
-
-    public AreaDesignada getAreaDesignada() {
-        return areaDesignada;
     }
 }

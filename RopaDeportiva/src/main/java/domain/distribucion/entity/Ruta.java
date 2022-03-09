@@ -4,7 +4,6 @@ import co.com.sofka.domain.generic.Entity;
 import domain.distribucion.ids.RutaId;
 import domain.distribucion.valueobjects.ruta.Destino;
 import domain.distribucion.valueobjects.ruta.Origen;
-import generics.NombreConductor;
 
 import java.util.Objects;
 

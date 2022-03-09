@@ -1,33 +1,33 @@
-package domain.almacen.event;
+package domain.distribucion.event;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import domain.almacen.ids.AsesorId;
-import domain.almacen.valueobjects.asesor.AreaDesignada;
 import generics.HorasDeTrabajo;
+import domain.distribucion.ids.ConductorId;
 import generics.Identificacion;
 import generics.Nombre;
 
-public class AsesorAniadido extends DomainEvent {
-
-    private final AsesorId asesorId;
+public class ConductorAniadido extends DomainEvent
+{
+    private final ConductorId conductorId;
     private final Nombre nombre;
     private final Identificacion identificacion;
     private final HorasDeTrabajo horasDeTrabajo;
-    private final AreaDesignada areaDesignada;
 
-    public AsesorAniadido(AsesorId asesorId, Nombre nombre, Identificacion identificacion, HorasDeTrabajo horasDeTrabajo, AreaDesignada areaDesignada){
+
+    public ConductorAniadido(ConductorId conductorId, Nombre nombre, Identificacion identificacion,
+                             HorasDeTrabajo horasDeTrabajo){
         super("RopaDeportiva.AsesorAniadido");
-        this.asesorId = asesorId;
+        this.conductorId = conductorId;
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.horasDeTrabajo = horasDeTrabajo;
-        this.areaDesignada = areaDesignada;
+
     }
 
     // se generan los getters
 
-    public AsesorId getAsesorId() {
-        return asesorId;
+    public ConductorId getConductorId() {
+        return conductorId;
     }
 
     public Nombre getNombre() {
@@ -42,7 +42,5 @@ public class AsesorAniadido extends DomainEvent {
         return horasDeTrabajo;
     }
 
-    public AreaDesignada getAreaDesignada() {
-        return areaDesignada;
-    }
+
 }

@@ -3,7 +3,7 @@ package domain.almacen.command;
 import co.com.sofka.domain.generic.Command;
 import domain.almacen.ids.AsesorId;
 import domain.almacen.valueobjects.asesor.AreaDesignada;
-import domain.almacen.valueobjects.asesor.HorasDeTrabajo;
+import generics.HorasDeTrabajo;
 import generics.Identificacion;
 import generics.Nombre;
 
