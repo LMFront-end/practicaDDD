@@ -7,23 +7,36 @@ import java.util.Objects;
 public class Telefono implements ValueObject<Telefono.Properties> {
 
     // declaración de variables
-    private final String telefono;
+    private final String fijo;
+    private final String celular;
 
     // constructor
-    public Telefono(String telefono){
-        this.telefono = telefono;
+    public Telefono(String fijo, String celular){
+        this.fijo = fijo;
+        this.celular = celular;
     }
 
     // interface
     public interface Properties{
-        String telefono();
-
+        String fijo();
+        String celular();
     }
 
     // constructor del properties
     @Override
     public Telefono.Properties value() {
-        return () -> telefono;
+        return new Telefono.Properties(){
+
+            @Override
+            public String fijo(){
+                return fijo;
+            }
+
+            @Override
+            public String celular(){
+                return celular;
+            }
+        };
     }
 
     // se implementa equals y hashCode
@@ -31,12 +44,12 @@ public class Telefono implements ValueObject<Telefono.Properties> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Telefono)) return false;
-        Telefono that = (Telefono) o;
-        return Objects.equals(telefono, that.telefono);
+        Telefono telefono1 = (Telefono) o;
+        return fijo.equals(telefono1.fijo) && celular.equals(telefono1.celular);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(telefono);
+        return Objects.hash(fijo, celular);
     }
 }
