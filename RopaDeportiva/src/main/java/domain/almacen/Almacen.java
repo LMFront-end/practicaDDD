@@ -83,26 +83,44 @@ public class Almacen extends AggregateEvent<AlmacenId> {
 
     // añadirAsesor()
     public void aniadirAsesor(AsesorId asesorId, Nombre nombre, Identificacion identificacion, HorasDeTrabajo horasDeTrabajo, AreaDesignada areaDesignada){
+        Objects.requireNonNull(asesorId);
+        Objects.requireNonNull(nombre);
+        Objects.requireNonNull(identificacion);
+        Objects.requireNonNull(horasDeTrabajo);
+        Objects.requireNonNull(areaDesignada);
+        appendChange(new AsesorAniadido(asesorId, nombre, identificacion, horasDeTrabajo, areaDesignada));
 
     }
-    // cambiarAsesor()
-    public void cambiatAsesor(AsesorId asesorId, Nombre nombre, Identificacion identificacion, HorasDeTrabajo horasDeTrabajo, AreaDesignada areaDesignada){
 
+    // cambiarAsesor()
+    public void cambiarAsesor(AsesorId asesorId, Nombre nombre, Identificacion identificacion, HorasDeTrabajo horasDeTrabajo, AreaDesignada areaDesignada){
+        Objects.requireNonNull(asesorId);
+        Objects.requireNonNull(nombre);
+        Objects.requireNonNull(identificacion);
+        Objects.requireNonNull(horasDeTrabajo);
+        Objects.requireNonNull(areaDesignada);
+        appendChange(new AsesorCambiado(asesorId, nombre, identificacion, horasDeTrabajo, areaDesignada));
     }
     // eliminarAsesor()
     public void eliminarAsesor(AsesorId asesorId){
+        Objects.requireNonNull(asesorId);
+        appendChange(new AsesorEliminado(asesorId));
 
     }
 
     // cambiarGerente()
     public void cambiarGerente(GerenteId gerenteId, Nombre nombre, Identificacion identificacion){
-
+        Objects.requireNonNull(gerenteId);
+        Objects.requireNonNull(nombre);
+        Objects.requireNonNull(identificacion);
+        appendChange(new GerenteCambiado(gerenteId, nombre, identificacion));
     }
 
 
     // eliminarGerente()
     public void eliminarGerente(GerenteId gerenteId){
-
+        Objects.requireNonNull(gerenteId);
+        appendChange(new GerenteEliminado(gerenteId));
     }
 
 }
