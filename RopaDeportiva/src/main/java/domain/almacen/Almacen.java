@@ -108,6 +108,14 @@ public class Almacen extends AggregateEvent<AlmacenId> {
 
     }
 
+    // añadirGerente()
+    public void aniadirGerente(GerenteId gerenteId, Nombre nombre, Identificacion identificacion){
+        Objects.requireNonNull(gerenteId);
+        Objects.requireNonNull(nombre);
+        Objects.requireNonNull(identificacion);
+        appendChange(new GerenteAniadido(gerenteId, nombre, identificacion));
+    }
+
     // cambiarGerente()
     public void cambiarGerente(GerenteId gerenteId, Nombre nombre, Identificacion identificacion){
         Objects.requireNonNull(gerenteId);

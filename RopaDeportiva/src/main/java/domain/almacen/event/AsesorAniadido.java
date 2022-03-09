@@ -5,7 +5,6 @@ import domain.almacen.ids.AsesorId;
 import domain.almacen.ids.ProductoId;
 import domain.almacen.valueobjects.asesor.AreaDesignada;
 import domain.almacen.valueobjects.asesor.HorasDeTrabajo;
-import domain.almacen.valueobjects.producto.*;
 import generics.Identificacion;
 import generics.Nombre;
 
