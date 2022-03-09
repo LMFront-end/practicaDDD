@@ -6,13 +6,13 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class PLaca implements ValueObject <PLaca.Properties>
+public class Destino implements ValueObject <Destino.Properties>
 {
     // declaración de variables
     private final String destino;
 
     // constructor
-    public PLaca(String destino){
+    public Destino(String destino){
         this.destino = destino;
     }
 
@@ -23,7 +23,7 @@ public class PLaca implements ValueObject <PLaca.Properties>
 
     // constructor del properties
     @Override
-    public PLaca.Properties value() {
+    public Destino.Properties value() {
         return () -> destino;
     }
 
@@ -31,8 +31,8 @@ public class PLaca implements ValueObject <PLaca.Properties>
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PLaca)) return false;
-        PLaca that = (PLaca) o;
+        if (!(o instanceof Destino)) return false;
+        Destino that = (Destino) o;
         return destino.equals(that.destino);
     }
 

@@ -1,7 +1,6 @@
 package domain.distribucion.valueobjects.vehiculo;
 
 import co.com.sofka.domain.generic.ValueObject;
-import domain.distribucion.valueobjects.ruta.PLaca;
 
 import java.util.Objects;
 
