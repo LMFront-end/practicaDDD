@@ -8,8 +8,11 @@ import domain.almacen.entity.Gerente;
 import domain.almacen.entity.Producto;
 import domain.almacen.event.AlmacenCreado;
 import domain.almacen.ids.AlmacenId;
+import domain.almacen.ids.ProductoId;
+import domain.almacen.valueobjects.producto.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -41,4 +44,32 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         events.forEach(almacen::applyEvent);
         return almacen;
     }
+
+    // métodos del agregado
+
+    // añadirProducto()
+    public void aniadirProducto(ProductoId productoId, Tipo tipo, Genero genero, Marca marca, Precio precio, Talla talla ){
+        Objects.requireNonNull(productoId);
+        Objects.requireNonNull(tipo);
+        Objects.requireNonNull(genero);
+        Objects.requireNonNull(marca);
+        Objects.requireNonNull(precio);
+        Objects.requireNonNull(talla);
+        appendChange(new ProductoAniadido(tipo, genero,  marca,  precio,  talla));
+    }
+
+    // cambiarProducto()
+    public void  cambiarProducto()
+
+    // eliminarProducto()
+
+
+    // cambiarAsesor()
+
+    // añadirAsesor()
+
+    // eliminarAsesor()
+
+    // cambiarGerente()
+
 }
