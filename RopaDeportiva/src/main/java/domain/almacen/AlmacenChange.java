@@ -3,6 +3,7 @@ package domain.almacen;
 import co.com.sofka.domain.generic.EventChange;
 import domain.almacen.entity.Producto;
 import domain.almacen.event.AlmacenCreado;
+import domain.almacen.event.ProductoAniadido;
 
 
 public class AlmacenChange extends EventChange {
@@ -18,7 +19,7 @@ public class AlmacenChange extends EventChange {
         // añadirProducto()
 
         apply((ProductoAniadido event) -> {
-            almacen.producto = new Producto(event.)
+            almacen.productos = new Producto(event.)
         });
 
         // cambiarProducto()

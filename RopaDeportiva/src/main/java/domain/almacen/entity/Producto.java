@@ -20,7 +20,7 @@ public class Producto extends Entity<ProductoId> {
 
     // se crea un constructor público para los objectValue
 
-    public Producto(ProductoId productoId, Tipo tipo, Genero genero, Marca marca, Precio precio, Talla talla ){
+    public Producto(ProductoId productoId, Tipo tipo, Genero genero, Marca marca, Precio precio, Talla talla){
 
         // Super --> herencia
         super(productoId);

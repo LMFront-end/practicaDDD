@@ -6,6 +6,8 @@ import domain.almacen.entity.Asesor;
 import domain.almacen.entity.Gerente;
 import domain.almacen.entity.Producto;
 import domain.almacen.event.AlmacenCreado;
+import domain.almacen.event.ProductoAniadido;
+import domain.almacen.event.ProductoCambiado;
 import domain.almacen.ids.AlmacenId;
 import domain.almacen.ids.AsesorId;
 import domain.almacen.ids.GerenteId;
@@ -26,8 +28,8 @@ public class Almacen extends AggregateEvent<AlmacenId> {
     // se llaman las entidades de almacen
     // modificador de acceso
     protected AlmacenId almacenId;
-    protected Set <Asesor> asesor;
-    protected Set <Producto> producto;
+    protected Set <Asesor> asesores;
+    protected Set <Producto> productos;
     protected Gerente gerente;
 
 
@@ -124,12 +126,12 @@ public class Almacen extends AggregateEvent<AlmacenId> {
 
     // se crean los constructores
 
-    public Asesor asesor(){
-        return (Asesor) asesor;
+    public Set<Asesor> asesores(){
+        return asesores;
     }
 
-    public Producto producto(){
-        return (Producto) producto;
+    public Set <Producto> productos(){
+        return productos;
     }
 
     public Gerente gerente(){
