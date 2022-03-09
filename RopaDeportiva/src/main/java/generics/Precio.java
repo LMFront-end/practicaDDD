@@ -1,7 +1,6 @@
-package domain.almacen.valueobjects.producto;
+package generics;
 
 import co.com.sofka.domain.generic.ValueObject;
-import generics.Identificacion;
 
 import java.util.Objects;
 

@@ -3,6 +3,7 @@ package domain.almacen.entity;
 import co.com.sofka.domain.generic.Entity;
 import domain.almacen.ids.ProductoId;
 import domain.almacen.valueobjects.producto.*;
+import generics.Precio;
 
 
 import java.util.Objects;

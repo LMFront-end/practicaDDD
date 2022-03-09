@@ -15,6 +15,7 @@ import domain.almacen.valueobjects.asesor.HorasDeTrabajo;
 import domain.almacen.valueobjects.producto.*;
 import generics.Identificacion;
 import generics.Nombre;
+import generics.Precio;
 
 import java.util.List;
 import java.util.Objects;

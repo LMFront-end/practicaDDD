@@ -3,6 +3,7 @@ package domain.almacen.event;
 import co.com.sofka.domain.generic.DomainEvent;
 import domain.almacen.ids.ProductoId;
 import domain.almacen.valueobjects.producto.*;
+import generics.Precio;
 
 public class ProductoAniadido extends DomainEvent {
 

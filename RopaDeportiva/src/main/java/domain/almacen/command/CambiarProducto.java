@@ -3,6 +3,7 @@ package domain.almacen.command;
 import co.com.sofka.domain.generic.Command;
 import domain.almacen.ids.ProductoId;
 import domain.almacen.valueobjects.producto.*;
+import generics.Precio;
 
 public class CambiarProducto extends Command {
 
