@@ -27,7 +27,7 @@ public class Estado extends Entity<EstadoId> {
     // métodos de la entidad Estado
 
     // cambiarEstadoActual()
-    public void cambiarNombre(EstadoActual estadoActual){
+    public void cambiarEstadoActual(EstadoActual estadoActual){
         this.estadoActual = Objects.requireNonNull(estadoActual);
     }
 
