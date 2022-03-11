@@ -11,7 +11,7 @@ public class TransaccionCambiada extends DomainEvent {
     private final Fecha fecha;
     private final Precio precio;
 
-    public TransaccionCambiada(String type, TransaccionId transaccionId, Fecha fecha, Precio precio) {
+    public TransaccionCambiada(TransaccionId transaccionId, Fecha fecha, Precio precio) {
         super("RopaDeportiva.TransaccionCambiada");
         this.transaccionId = transaccionId;
         this.fecha = fecha;

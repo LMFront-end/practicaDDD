@@ -20,7 +20,7 @@ public class ClienteCambiado extends DomainEvent {
     private final Set<Direccion> direccion;
     private final Identificacion identificacion;
 
-    public ClienteCambiado(String type, ClienteId clienteId, Nombre nombre, Set<Telefono> telefono, Set<Email> email, Set<Direccion> direccion, Identificacion identificacion) {
+    public ClienteCambiado(ClienteId clienteId, Nombre nombre, Set<Telefono> telefono, Set<Email> email, Set<Direccion> direccion, Identificacion identificacion) {
         super("RopaDeportiva.ClienteCambiado");
         this.clienteId = clienteId;
         this.nombre = nombre;

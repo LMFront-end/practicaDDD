@@ -6,7 +6,10 @@ import domain.almacen.ids.AlmacenId;
 import domain.factura.entity.Cliente;
 import domain.factura.entity.Estado;
 import domain.factura.entity.Transaccion;
+import domain.factura.event.ClienteCambiado;
+import domain.factura.event.EstadoCambiado;
 import domain.factura.event.FacturaCreada;
+import domain.factura.event.TransaccionCambiada;
 import domain.factura.ids.ClienteId;
 import domain.factura.ids.EstadoId;
 import domain.factura.ids.FacturaId;
@@ -57,7 +60,7 @@ public class Factura extends AggregateEvent<FacturaId> {
     }
 
     //Cambiar Cliente
-    public void cambiarCliente(ClienteId clienteId, Nombre nombre, Set<Telefono> telefono, Set<Email> email, Set<Direccion> direccion, Identificacion identificacion) {
+    public void cambiarCliente(ClienteId clienteId, Nombre nombre, Set<Telefono>telefono, Set<Email> email, Set<Direccion> direccion, Identificacion identificacion) {
 
         Objects.requireNonNull(clienteId);
         Objects.requireNonNull(nombre);
@@ -65,7 +68,7 @@ public class Factura extends AggregateEvent<FacturaId> {
         Objects.requireNonNull(email);
         Objects.requireNonNull(direccion);
         Objects.requireNonNull(identificacion);
-
+        appendChange(new ClienteCambiado(clienteId, nombre, telefono, email, direccion, identificacion)).apply();
     }
 
     //cambiar transaccion
@@ -74,6 +77,7 @@ public class Factura extends AggregateEvent<FacturaId> {
         Objects.requireNonNull(transaccionId);
         Objects.requireNonNull(fecha);
         Objects.requireNonNull(precio);
+        appendChange(new TransaccionCambiada(transaccionId, fecha, precio)).apply();
     }
 
     //cambiar estado
@@ -82,6 +86,7 @@ public class Factura extends AggregateEvent<FacturaId> {
         Objects.requireNonNull(estadoId);
         Objects.requireNonNull(estadoActual);
         Objects.requireNonNull(fecha);
+        appendChange(new EstadoCambiado(estadoId, estadoActual, fecha)).apply();
     }
 
     // se crean los constructores

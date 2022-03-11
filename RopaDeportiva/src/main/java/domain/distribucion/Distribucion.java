@@ -66,7 +66,7 @@ public class Distribucion extends AggregateEvent<DistribucionId>
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(identificacion);
         Objects.requireNonNull(horasDeTrabajo);
-        appendChange(new ConductorAniadido(conductorId, nombre, identificacion,  horasDeTrabajo));
+        appendChange(new ConductorAniadido(conductorId, nombre, identificacion,  horasDeTrabajo)).apply();
     }
 
     // cambiarConductor()
@@ -75,13 +75,13 @@ public class Distribucion extends AggregateEvent<DistribucionId>
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(identificacion);
         Objects.requireNonNull(horasDeTrabajo);
-        appendChange(new ConductorAniadido(conductorId, nombre, identificacion,  horasDeTrabajo));
+        appendChange(new ConductorAniadido(conductorId, nombre, identificacion,  horasDeTrabajo)).apply();
     }
 
     // eliminarConductor()
     public void eliminarConductor(ConductorId conductorId){
         Objects.requireNonNull(conductorId);
-        appendChange(new ConductorEliminado(conductorId));
+        appendChange(new ConductorEliminado(conductorId)).apply();
     }
 
     // añadirRuta()
@@ -89,7 +89,7 @@ public class Distribucion extends AggregateEvent<DistribucionId>
         Objects.requireNonNull(rutaId);
         Objects.requireNonNull(origen);
         Objects.requireNonNull(destino);
-        appendChange(new RutaAniadida(rutaId, origen, destino));
+        appendChange(new RutaAniadida(rutaId, origen, destino)).apply();
 
     }
 
@@ -98,13 +98,13 @@ public class Distribucion extends AggregateEvent<DistribucionId>
         Objects.requireNonNull(rutaId);
         Objects.requireNonNull(origen);
         Objects.requireNonNull(destino);
-        appendChange(new RutaAniadida(rutaId, origen, destino));
+        appendChange(new RutaAniadida(rutaId, origen, destino)).apply();
     }
 
     // eliminarRuta()
     public void eliminarRuta(RutaId rutaId){
         Objects.requireNonNull(rutaId);
-        appendChange(new RutaEliminada(rutaId));
+        appendChange(new RutaEliminada(rutaId)).apply();
 
     }
 
@@ -115,7 +115,7 @@ public class Distribucion extends AggregateEvent<DistribucionId>
         Objects.requireNonNull(estadoVehiculo);
         Objects.requireNonNull(placa);
         Objects.requireNonNull(tipoVehiculo);
-        appendChange(new VehiculoAniadido(vehiculoId, estadoVehiculo,placa,  tipoVehiculo));
+        appendChange(new VehiculoAniadido(vehiculoId, estadoVehiculo,placa,  tipoVehiculo)).apply();
     }
 
     // cambiarVehiculo()
@@ -124,18 +124,14 @@ public class Distribucion extends AggregateEvent<DistribucionId>
         Objects.requireNonNull(estadoVehiculo);
         Objects.requireNonNull(placa);
         Objects.requireNonNull(tipoVehiculo);
-        appendChange(new VehiculoCambiado(vehiculoId, estadoVehiculo,placa,  tipoVehiculo));
+        appendChange(new VehiculoCambiado(vehiculoId, estadoVehiculo,placa,  tipoVehiculo)).apply();
     }
 
     // eliminarVehiculo()
     public void eliminarVehiculo(VehiculoId vehiculoId){
         Objects.requireNonNull(vehiculoId);
-        appendChange(new VehiculoEliminado(vehiculoId));
+        appendChange(new VehiculoEliminado(vehiculoId)).apply();
     }
-
-
-
-
 
 
     public Conductor conductor(Conductor conductor){

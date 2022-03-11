@@ -11,7 +11,7 @@ public class EstadoCambiado extends DomainEvent {
     private final EstadoActual estadoActual;
     private final Fecha fecha;
 
-    public EstadoCambiado(String type, EstadoId estadoId, EstadoActual estadoActual, Fecha fecha) {
+    public EstadoCambiado(EstadoId estadoId, EstadoActual estadoActual, Fecha fecha) {
         super("RopaDeportiva.EstadoCambiado");
         this.estadoId = estadoId;
         this.estadoActual = estadoActual;

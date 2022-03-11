@@ -61,7 +61,7 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         Objects.requireNonNull(marca);
         Objects.requireNonNull(precio);
         Objects.requireNonNull(talla);
-        appendChange(new ProductoAniadido(productoId, tipo, genero,  marca,  precio,  talla));
+        appendChange(new ProductoAniadido(productoId, tipo, genero,  marca,  precio,  talla)).apply();
     }
 
     // cambiarProducto()
@@ -72,7 +72,7 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         Objects.requireNonNull(marca);
         Objects.requireNonNull(precio);
         Objects.requireNonNull(talla);
-        appendChange(new ProductoCambiado(productoId, tipo, genero,  marca,  precio,  talla));
+        appendChange(new ProductoCambiado(productoId, tipo, genero,  marca,  precio,  talla)).apply();
     }
 
     // eliminarProducto()
@@ -88,7 +88,7 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         Objects.requireNonNull(identificacion);
         Objects.requireNonNull(horasDeTrabajo);
         Objects.requireNonNull(areaDesignada);
-        appendChange(new AsesorAniadido(asesorId, nombre, identificacion, horasDeTrabajo, areaDesignada));
+        appendChange(new AsesorAniadido(asesorId, nombre, identificacion, horasDeTrabajo, areaDesignada)).apply();
 
     }
 
@@ -99,7 +99,7 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         Objects.requireNonNull(identificacion);
         Objects.requireNonNull(horasDeTrabajo);
         Objects.requireNonNull(areaDesignada);
-        appendChange(new AsesorCambiado(asesorId, nombre, identificacion, horasDeTrabajo, areaDesignada));
+        appendChange(new AsesorCambiado(asesorId, nombre, identificacion, horasDeTrabajo, areaDesignada)).apply();
     }
 
     // eliminarAsesor()
@@ -114,7 +114,7 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         Objects.requireNonNull(gerenteId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(identificacion);
-        appendChange(new GerenteAniadido(gerenteId, nombre, identificacion));
+        appendChange(new GerenteAniadido(gerenteId, nombre, identificacion)).apply();
     }
 
     // cambiarGerente()
@@ -122,13 +122,13 @@ public class Almacen extends AggregateEvent<AlmacenId> {
         Objects.requireNonNull(gerenteId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(identificacion);
-        appendChange(new GerenteCambiado(gerenteId, nombre, identificacion));
+        appendChange(new GerenteCambiado(gerenteId, nombre, identificacion)).apply();
     }
 
     // eliminarGerente()
     public void eliminarGerente(GerenteId gerenteId){
         Objects.requireNonNull(gerenteId);
-        appendChange(new GerenteEliminado(gerenteId));
+        appendChange(new GerenteEliminado(gerenteId)).apply();
     }
 
     // se crean los constructores
